@@ -12,7 +12,7 @@ print=50
 quant_freq=1
 
 
-for t in 3
+for t in 0.1 0.5 1 3
 do
   for a in 0.1 1 5 10 20 50 70 100 500
   do
