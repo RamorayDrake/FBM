@@ -23,11 +23,11 @@ pip install -r requirements.txt
 ## Getting Started
 ### Cifar10
 ```
-python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 512 --ds cifar10 --data ./ --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1
+python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 512 --ds cifar10 --data ./ --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1 --create_table
 ```
 ### Imagenet
 ```
-python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 128 --ds Imagenet --data PATH_TO_IMAGENET --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1
+python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 128 --ds Imagenet --data PATH_TO_IMAGENET --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1 --create_table
 ```
 ### Fine tune
 ```
