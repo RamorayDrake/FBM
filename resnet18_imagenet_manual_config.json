@@ -1,0 +1,90 @@
+{
+    "model": "resnet18",
+    "pretrained": false,
+    "batch_size": 256,
+    "epochs": 100,
+    "input_info": {
+        "sample_size": [
+            1,
+            3,
+            224,
+            224
+        ]
+    },
+    "optimizer": {
+        "base_lr": 0.00031,
+        "schedule_type": "plateau",
+        "type": "Adam",
+        "schedule_params": {
+            "threshold": 0.1,
+            "cooldown": 3
+        },
+        "weight_decay": 1e-05
+    },
+    "target_device": "TRIAL",
+    "compression": {
+        "algorithm": "quantization",
+        "quantize_inputs": true,
+        "initializer": {
+            "precision": {
+                "bitwidth_per_scope": [
+                    [8, "ResNet/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/Sequential[downsample]/NNCFConv2d[0]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/Sequential[downsample]/NNCFConv2d[0]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/Sequential[downsample]/NNCFConv2d[0]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/NNCFConv2d[conv1]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/NNCFConv2d[conv2]/conv2d_0|WEIGHT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer1]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[0]/Sequential[downsample]/NNCFBatchNorm[1]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer2]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[0]/Sequential[downsample]/NNCFBatchNorm[1]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer3]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[0]/Sequential[downsample]/NNCFBatchNorm[1]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/ReLU[relu]/relu__0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/ReLU[relu]/relu__1|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                    [8, "ResNet/Sequential[layer4]/BasicBlock[1]/NNCFBatchNorm[bn2]/batch_norm_0|OUTPUT"],
+                ]
+            }
+        }
+    }
+}
