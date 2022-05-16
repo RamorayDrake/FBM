@@ -41,6 +41,7 @@ python3 quant_train.py -a resnet18 --epochs 50 --lr 0.0001 -b 512 --ds cifar10 -
 1. add power estimation to all benchmarks
 2. add hardware simulator results from our partners 
 3. add Trinary to mixed-precision quantization 
+4. add CO2 consumption of our training procedure
 
 
 ## License
